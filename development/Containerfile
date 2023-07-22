@@ -1,0 +1,21 @@
+#source reference Docker Docs: https://docs.docker.com/build/building/multi-stage/
+&&
+#source Fedora Docs:https://docs.fedoraproject.org/en-US/iot/build-docker/
+
+FROM alpine:latest AS builder
+RUN apk --no-cache add ca-certificates
+WORKDIR /data.txt/
+
+FROM builder AS stage1
+COPY builder.go ./
+
+FROM fedora:latest as FINAL >> Dockerfile
+COPY builder from data.txt /tmp/
+RUN  /tmp/data.txt/* 
+
+
+podman build -t storage-exercise .
+
+
+podman images
+
