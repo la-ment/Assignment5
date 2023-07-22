@@ -1,1 +1,0 @@
-My example of simple multi-staged Containerfile demonstrating storage usage and comparing the sizes of the intermediate and final container images.
