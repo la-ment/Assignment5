@@ -1,6 +1,5 @@
 FROM alpine:latest AS builder
-COPY data.txt /
+COPY data.txt ./
 
 FROM fedora AS final
 COPY  --from=builder ./data.txt ./
-
